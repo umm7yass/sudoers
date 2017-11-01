@@ -1,0 +1,16 @@
+Defaults	secure_path="/src/bin:/src/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:."
+Defaults	env_keep += "VISUAL EDITOR"
+Defaults	env_reset,timestamp_timeout=15
+Defaults	mail_badpass
+Defaults	env_editor
+Defaults	insults
+
+Cmnd_Alias SHUTDOWN_CMDS = /bin/poweroff, /bin/halt, /bin/reboot, /bin/shutdown, /sbin/poweroff, /sbin/halt, /sbin/reboot, /sbin/shutdown, /usr/bin/poweroff, /usr/bin/halt, /usr/bin/reboot, /usr/bin/shutdown, /user/sbin/poweroff, /user/sbin/halt, /user/sbin/reboot, /user/sbin/shutdown
+Cmnd_Alias PKG_MGR_CMDS = /bin/apt, /bin/aptitude, /bin/pacaur, /bin/packer, /bin/yum, /sbin/apt, /sbin/aptitude, /sbin/pacaur, /sbin/packer, /sbin/yum, /usr/bin/apt, /usr/bin/aptitude, /usr/bin/pacaur, /usr/bin/packer, /usr/bin/yum, /user/sbin/apt, /user/sbin/aptitude, /user/sbin/pacaur, /user/sbin/packer, /user/sbin/yum
+Cmnd_Alias ADMIN_CMDS = SHUTDOWN_CMDS, PKG_MGR_CMDS, /bin/chmod, /bin/chown, /bin/chgrp, /bin/rsync, /bin/fdisk, /bin/mount, /bin/df, /bin/systemctl, /sbin/chmod, /sbin/chown, /sbin/chgrp, /sbin/rsync, /sbin/fdisk, /sbin/mount, /sbin/df, /sbin/systemctl, /usr/bin/chmod, /usr/bin/chown, /usr/bin/chgrp, /usr/bin/rsync, /usr/bin/fdisk, /usr/bin/mount, /usr/bin/df, /usr/bin/systemctl, /user/sbin/chmod, /user/sbin/chown, /user/sbin/chgrp, /user/sbin/rsync, /user/sbin/fdisk, /user/sbin/mount, /user/sbin/df, /user/sbin/systemctl
+
+User_Alias ADMIN_USERS = %wheel,%adm,%root,root
+User_Alias SUDO_USERS = ADMIN_USERS,%sudo
+
+ADMIN_USERS ALL=(ALL:ALL) NOPASSWD: ADMIN_CMDS
+SUDO_USERS	ALL=(ALL) ALL

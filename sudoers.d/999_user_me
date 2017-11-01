@@ -1,0 +1,1 @@
+Defaults:me	timestamp_timeout=60,!tty_tickets,!env_reset
